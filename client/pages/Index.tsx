@@ -60,7 +60,7 @@ const Index = () => {
     {
       title: "Personaseek",
       description: "People search and profile discovery platform with real-time filtering.",
-      link: "https://personaseek-v2-1.onrender.com",
+      link: "https://personaseek-v2-frontend-production.up.railway.app/",
       technologies: ["React", "Node.js", "Tailwind CSS"],
     },
   ];
