@@ -1,0 +1,209 @@
+/** @import must precede all other statements */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&family=Playfair+Display:wght@700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Tailwind CSS theme - Dark mode portfolio
+   * tailwind.config.ts expects the following color variables to be expressed as HSL values.
+   * A different format will require also updating the theme in tailwind.config.ts.
+  */
+  :root {
+    --background: 220 13% 5%;
+    --foreground: 210 12% 96%;
+
+    --card: 220 15% 9%;
+    --card-foreground: 210 12% 96%;
+
+    --popover: 220 15% 10%;
+    --popover-foreground: 210 12% 96%;
+
+    --primary: 210 100% 64%;
+    --primary-foreground: 210 12% 97%;
+
+    --secondary: 220 14% 18%;
+    --secondary-foreground: 210 20% 86%;
+
+    --muted: 220 14% 20%;
+    --muted-foreground: 210 15% 70%;
+
+    --accent: 230 80% 60%;
+    --accent-foreground: 210 12% 95%;
+
+    --destructive: 348 78% 55%;
+    --destructive-foreground: 210 12% 96%;
+
+    --border: 220 14% 18%;
+    --input: 220 14% 18%;
+    --ring: 210 100% 64%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 220 16% 11%;
+    --sidebar-foreground: 210 12% 96%;
+    --sidebar-primary: 210 100% 64%;
+    --sidebar-primary-foreground: 210 12% 96%;
+    --sidebar-accent: 220 14% 18%;
+    --sidebar-accent-foreground: 210 12% 96%;
+    --sidebar-border: 220 14% 18%;
+    --sidebar-ring: 210 100% 64%;
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Poppins", sans-serif;
+    background-image:
+      radial-gradient(circle at 25% 10%, rgba(59, 130, 246, 0.12), transparent 18%),
+      radial-gradient(circle at 80% 15%, rgba(167, 139, 250, 0.09), transparent 18%),
+      radial-gradient(circle at 55% 90%, rgba(236, 72, 153, 0.09), transparent 20%),
+      linear-gradient(180deg, rgba(8, 12, 22, 0.98), rgba(8, 12, 22, 1));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+
+  :where(p, span, li, h1, h2, h3, h4, h5, h6, a, button, label, td, th) {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  pre,
+  code {
+    overflow-x: auto;
+    white-space: pre;
+    font-family: "Space Mono", monospace;
+  }
+
+  /* Background patterns and animations */
+  .gradient-bg-1 {
+    background: none;
+  }
+
+  .gradient-bg-2 {
+    background: none;
+  }
+
+  .gradient-bg-3 {
+    background: none;
+  }
+
+  .gradient-text-1 {
+    background: linear-gradient(120deg, #60a5fa, #818cf8, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-text-2 {
+    background: linear-gradient(120deg, #38bdf8, #60a5fa, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+    font-family: "Playfair Display", serif;
+  }
+}
+
+@layer components {
+  .portfolio-btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-full font-semibold transition-transform duration-300 hover:-translate-y-0.5;
+  }
+
+  .portfolio-btn-primary {
+    @apply portfolio-btn bg-primary text-primary-foreground shadow-lg shadow-primary/20 hover:bg-primary/90;
+  }
+
+  .portfolio-btn-secondary {
+    @apply portfolio-btn border border-primary/30 text-primary hover:bg-primary/10;
+  }
+
+  .section-title {
+    @apply text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-base md:text-lg text-muted-foreground max-w-3xl mx-auto mb-12;
+  }
+
+  .glass-panel {
+    @apply rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-2xl shadow-black/20;
+  }
+
+  .hero-deco {
+    @apply absolute rounded-full opacity-30 blur-3xl;
+  }
+
+  .feature-pill {
+    @apply inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-muted-foreground;
+  }
+
+  .fade-in-up {
+    animation: fadeInUp 0.8s ease both;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
